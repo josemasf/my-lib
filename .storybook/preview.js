@@ -7,3 +7,7 @@ export const parameters = {
     },
   },
 }
+
+import { defineCustomElements } from '../dist/esm/loader';
+
+defineCustomElements();
