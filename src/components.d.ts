@@ -20,6 +20,12 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface QuizCheckboxes {
+        /**
+          * Label text
+         */
+        "label": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +34,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLQuizCheckboxesElement extends Components.QuizCheckboxes, HTMLStencilElement {
+    }
+    var HTMLQuizCheckboxesElement: {
+        prototype: HTMLQuizCheckboxesElement;
+        new (): HTMLQuizCheckboxesElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "quiz-checkboxes": HTMLQuizCheckboxesElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +60,15 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface QuizCheckboxes {
+        /**
+          * Label text
+         */
+        "label"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "quiz-checkboxes": QuizCheckboxes;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +76,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "quiz-checkboxes": LocalJSX.QuizCheckboxes & JSXBase.HTMLAttributes<HTMLQuizCheckboxesElement>;
         }
     }
 }
