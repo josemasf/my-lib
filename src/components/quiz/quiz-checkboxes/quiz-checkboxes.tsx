@@ -7,14 +7,14 @@ import { Component, Host, h, Prop } from '@stencil/core';
 })
 export class QuizCheckboxes {
    /**
-   * Label text
+   * Option answer
    */
     @Prop() label: string;
 
   render() {
     return (
       <Host>
-        <label><input type="checkbox" id="cbox1" value="first_checkbox" /> {this.label}</label>
+        <quiz-checkbox label={this.label} />
       </Host>
     );
   }

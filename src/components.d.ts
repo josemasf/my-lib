@@ -20,9 +20,16 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface QuizCheckbox {
+        /**
+          * Option answer
+         */
+        "label": string;
+        "value": string;
+    }
     interface QuizCheckboxes {
         /**
-          * Label text
+          * Option answer
          */
         "label": string;
     }
@@ -34,6 +41,12 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLQuizCheckboxElement extends Components.QuizCheckbox, HTMLStencilElement {
+    }
+    var HTMLQuizCheckboxElement: {
+        prototype: HTMLQuizCheckboxElement;
+        new (): HTMLQuizCheckboxElement;
+    };
     interface HTMLQuizCheckboxesElement extends Components.QuizCheckboxes, HTMLStencilElement {
     }
     var HTMLQuizCheckboxesElement: {
@@ -42,6 +55,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "quiz-checkbox": HTMLQuizCheckboxElement;
         "quiz-checkboxes": HTMLQuizCheckboxesElement;
     }
 }
@@ -60,14 +74,22 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface QuizCheckbox {
+        /**
+          * Option answer
+         */
+        "label"?: string;
+        "value"?: string;
+    }
     interface QuizCheckboxes {
         /**
-          * Label text
+          * Option answer
          */
         "label"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "quiz-checkbox": QuizCheckbox;
         "quiz-checkboxes": QuizCheckboxes;
     }
 }
@@ -76,6 +98,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "quiz-checkbox": LocalJSX.QuizCheckbox & JSXBase.HTMLAttributes<HTMLQuizCheckboxElement>;
             "quiz-checkboxes": LocalJSX.QuizCheckboxes & JSXBase.HTMLAttributes<HTMLQuizCheckboxesElement>;
         }
     }
